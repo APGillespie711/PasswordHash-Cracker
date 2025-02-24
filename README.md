@@ -26,3 +26,25 @@ This project is designed to demonstrate various Python techniques including:
 - **Usage Examples:** Included sample scripts and command-line usage instructions.
 - **Testing:** Comprehensive unit tests to ensure functionality and reliability.
 
+## Raw Code
+
+import hashlib
+
+
+def CrackHash(inputPass):
+      try:
+            passFile = open("most_used_passwords.txt", "r")
+
+      except:
+            print("Could not find file.") 
+
+      for password in passFile:
+            encPass = password.encode("utf-8")
+            digest = hashlib.md5(encPass.strip()).hexdigest()
+            if digest == inputPass:
+                  print("Password Found:  " + password)
+
+if __name__== '__main__':
+      CrackHash("")                             
+
+
